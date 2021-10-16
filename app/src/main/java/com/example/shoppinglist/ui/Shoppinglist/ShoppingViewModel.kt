@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 class ShoppingViewModel(
     private val Repository: ShoppingRepositories
 ): ViewModel() {
-    fun upsert(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+    fun upsert(item: ShoppingItem) = CoroutineScope(Dispatchers.IO).launch {
         Repository.upsert(item)
     }
 
-    fun delete(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+    fun delete(item: ShoppingItem) = CoroutineScope(Dispatchers.IO).launch {
         Repository.delete(item)
     }
 
